@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["sue445"]
   spec.email         = ["sue445@sue445.net"]
 
-  spec.summary       = %q{Code style checking for itamae recipes}
-  spec.description   = %q{Code style checking for itamae recipes}
+  spec.summary       = 'Code style checking for itamae recipes'
+  spec.description   = 'Code style checking for itamae recipes'
   spec.homepage      = "https://github.com/sue445/rubocop-itamae"
   spec.license       = "MIT"
 
