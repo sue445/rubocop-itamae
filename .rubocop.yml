@@ -1,3 +1,7 @@
 Style/HashSyntax:
   Exclude:
     - "Rakefile"
+
+Metrics/LineLength:
+  Exclude:
+    - "spec/spec_helper.rb"
