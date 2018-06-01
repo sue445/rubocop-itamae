@@ -1,4 +1,4 @@
-require "rubocop/itamae/version"
+require 'rubocop/itamae/version'
 
 module Rubocop
   module Itamae
