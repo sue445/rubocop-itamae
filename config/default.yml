@@ -1,0 +1,4 @@
+Itamae/CommandEqualsToName:
+  Description: Check that `command` doesn't equals to name of `execute`.
+  Enabled: true
+  StyleGuide: http://www.rubydoc.info/gems/rubocop-itamae/RuboCop/Cop/Itamae/CommandEqualsToName
