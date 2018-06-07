@@ -5,7 +5,7 @@ require 'rubocop/itamae/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'rubocop-itamae'
-  spec.version       = Rubocop::Itamae::VERSION
+  spec.version       = RuboCop::Itamae::VERSION
   spec.authors       = ['sue445']
   spec.email         = ['sue445@sue445.net']
 
