@@ -1,7 +1,11 @@
-Style/HashSyntax:
+Metrics/BlockLength:
   Exclude:
-    - "Rakefile"
+    - "spec/**/*.rb"
 
 Metrics/LineLength:
   Exclude:
     - "spec/spec_helper.rb"
+
+Style/HashSyntax:
+  Exclude:
+    - "Rakefile"
