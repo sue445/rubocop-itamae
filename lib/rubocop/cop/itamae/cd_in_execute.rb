@@ -14,8 +14,6 @@ module RuboCop
       #     cwd '/tmp'
       #   end
       class CdInExecute < Cop
-        include RangeHelp
-
         MSG = "Insert `cwd '%<dir>s'` and remove this.".freeze
 
         def_node_search :find_execute_with_block, <<-PATTERN
