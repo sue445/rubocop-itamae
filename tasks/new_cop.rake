@@ -16,8 +16,13 @@ task :new_cop, [:cop] do |_task, args|
 
   generator.write_source
   generator.write_spec
-  generator.inject_require
-  generator.inject_config
+  generator.inject_require(root_file_path: 'lib/rubocop/cop/itamae_cops.rb')
 
-  puts generator.todo
+  begin
+    generator.inject_config(config_file_path: 'config/default.yml')
+  rescue TypeError # rubocop:disable Lint/HandleExceptions
+    # nop
+  end
+
+  # puts generator.todo
 end
