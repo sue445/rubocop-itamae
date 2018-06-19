@@ -1,9 +1,8 @@
 # RuboCop::Itamae
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubocop/itamae`. To experiment with that code, run `bin/console` for an interactive prompt.
+Code style checking for [itamae](https://github.com/itamae-kitchen/itamae) recipes
 
-TODO: Delete this and the text above, and describe your gem
-
+[![Gem Version](https://badge.fury.io/rb/rubocop-itamae.svg)](https://badge.fury.io/rb/rubocop-itamae)
 [![Build Status](https://travis-ci.org/sue445/rubocop-itamae.svg?branch=master)](https://travis-ci.org/sue445/rubocop-itamae)
 [![Coverage Status](https://coveralls.io/repos/github/sue445/rubocop-itamae/badge.svg?branch=master)](https://coveralls.io/github/sue445/rubocop-itamae?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bf2f4b2cbf9c2cfc0e92/maintainability)](https://codeclimate.com/github/sue445/rubocop-itamae/maintainability)
@@ -25,8 +24,13 @@ Or install it yourself as:
     $ gem install rubocop-itamae
 
 ## Usage
+Add this line to your application's `.rubocop.yml`
 
-TODO: Write usage instructions here
+```yml
+inherit_gem:
+  rubocop-itamae:
+    - config/default.yml
+```
 
 ## Development
 
@@ -36,7 +40,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubocop-itamae.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sue445/rubocop-itamae.
 
 ## License
 
