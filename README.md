@@ -4,6 +4,10 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+[![Build Status](https://travis-ci.org/sue445/rubocop-itamae.svg?branch=master)](https://travis-ci.org/sue445/rubocop-itamae)
+[![Coverage Status](https://coveralls.io/repos/github/sue445/rubocop-itamae/badge.svg?branch=master)](https://coveralls.io/github/sue445/rubocop-itamae?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bf2f4b2cbf9c2cfc0e92/maintainability)](https://codeclimate.com/github/sue445/rubocop-itamae/maintainability)
+
 ## Installation
 
 Add this line to your application's Gemfile:
