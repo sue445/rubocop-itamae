@@ -12,9 +12,12 @@ cache: bundler
 before_install:
 - gem update --system --no-document
 - gem install bundler --no-document
-before_script: 
+before_script:
+- export CODECLIMATE_REPO_TOKEN=7e9993b9f657bb33552e76a7b9c8292541cf9a5d8d6811f585f6cfbc0785c820
+before_script:
 script:
 - bundle exec rspec
+- bundle exec codeclimate-test-reporter
 - bundle exec rubocop
 branches:
   only:
