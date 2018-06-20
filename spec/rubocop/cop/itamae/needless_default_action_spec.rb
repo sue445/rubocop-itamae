@@ -5,19 +5,41 @@ RSpec.describe RuboCop::Cop::Itamae::NeedlessDefaultAction do
 
   let(:config) { RuboCop::Config.new }
 
-  # TODO: Write test code
-  #
-  # For example
-  it 'registers an offense when using `#bad_method`' do
-    expect_offense(<<-RUBY.strip_indent)
-      bad_method
-      ^^^^^^^^^^ Use `#good_method` instead of `#bad_method`.
-    RUBY
+  context 'with default action' do
+    it 'registers an offense' do
+      expect_offense(<<-RUBY.strip_indent)
+        package 'git' do
+          action :install
+          ^^^^^^^^^^^^^^^ Prefer to omit the default action.
+        end
+      RUBY
+    end
+
+    include_examples 'autocorrect' do
+      let(:original) do
+        <<-RUBY.strip_indent
+          package 'git' do
+            action :install
+          end
+        RUBY
+      end
+
+      let(:corrected) do
+        <<-RUBY.strip_indent
+          package 'git' do
+          end
+        RUBY
+      end
+    end
   end
 
-  it 'does not register an offense when using `#good_method`' do
-    expect_no_offenses(<<-RUBY.strip_indent)
-      good_method
-    RUBY
+  context 'with non-default action' do
+    it 'registers no offense' do
+      expect_no_offenses(<<-RUBY)
+        package 'git' do
+          action :remove
+        end
+      RUBY
+    end
   end
 end

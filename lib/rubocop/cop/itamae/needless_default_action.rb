@@ -1,60 +1,93 @@
 # frozen_string_literal: true
 
-# TODO: when finished, run `rake generate_cops_documentation` to update the docs
 module RuboCop
   module Cop
     module Itamae
-      # TODO: Write cop description and example of bad / good code. For every
-      # `SupportedStyle` and unique configuration, there needs to be examples.
-      # Examples must have valid Ruby syntax. Do not use upticks.
+      # Checks whether default action is written for resource.
       #
-      # @example EnforcedStyle: bar (default)
-      #   # Description of the `bar` style.
-      #
+      # @example
       #   # bad
-      #   bad_bar_method
-      #
-      #   # bad
-      #   bad_bar_method(args)
+      #   package 'git' do
+      #     action :install
+      #   end
       #
       #   # good
-      #   good_bar_method
+      #   package 'git' do
+      #   end
       #
-      #   # good
-      #   good_bar_method(args)
-      #
-      # @example EnforcedStyle: foo
-      #   # Description of the `foo` style.
-      #
-      #   # bad
-      #   bad_foo_method
-      #
-      #   # bad
-      #   bad_foo_method(args)
-      #
-      #   # good
-      #   good_foo_method
-      #
-      #   # good
-      #   good_foo_method(args)
+      #   package 'git'
       #
       class NeedlessDefaultAction < Cop
-        # TODO: Implement the cop in here.
-        #
-        # In many cases, you can use a node matcher for matching node pattern.
-        # See https://github.com/rubocop-hq/rubocop/blob/master/lib/rubocop/node_pattern.rb
-        #
-        # For example
-        MSG = 'Use `#good_method` instead of `#bad_method`.'.freeze
+        include RangeHelp
 
-        def_node_matcher :bad_method?, <<-PATTERN
-          (send nil? :bad_method ...)
+        MSG = 'Prefer to omit the default action.'.freeze
+
+        RESOURCE_DEFAULT_ACTIONS = {
+          directory:        :create,
+          execute:          :run,
+          file:             :create,
+          gem_package:      :install,
+          git:              :sync,
+          group:            :create,
+          http_request:     :create,
+          link:             :create,
+          local_ruby_block: :run,
+          package:          :install,
+          remote_directory: :create,
+          remote_file:      :create,
+          service:          :nothing,
+          template:         :create,
+          user:             :create
+        }.freeze
+
+        def_node_search :find_resource, <<-PATTERN
+          (block
+            (send nil? ${:directory :execute :file :gem_package :git :group :http_request :link :local_ruby_block :package :remote_directory :remote_file :service :template :user}
+              (...)
+            )
+            args
+            $...
+          )
         PATTERN
 
-        def on_send(node)
-          return unless bad_method?(node)
+        def_node_search :find_action, <<-PATTERN
+          (send nil? :action
+            (sym $_)
+          )
+        PATTERN
 
-          add_offense(node)
+        def on_block(node)
+          find_resource(node) do |resource, param_nodes|
+            param_nodes.compact.each do |param_node|
+              find_action(param_node) do |action|
+                next unless action == RESOURCE_DEFAULT_ACTIONS[resource]
+
+                add_offense(param_node, location: :expression)
+              end
+            end
+          end
+        end
+
+        def autocorrect(node)
+          lambda do |corrector|
+            remove_action_param(corrector, node.parent, node) if node.send_type?
+          end
+        end
+
+        private
+
+        def remove_action_param(corrector, parent_node, param_node)
+          find_resource(parent_node) do |resource|
+            find_action(param_node) do |action|
+              next unless action == RESOURCE_DEFAULT_ACTIONS[resource]
+
+              corrector.remove(node_range(param_node))
+            end
+          end
+        end
+
+        def node_range(node)
+          range_by_whole_lines(node.source_range, include_final_newline: true)
         end
       end
     end
