@@ -7,3 +7,8 @@ Itamae/CommandEqualsToName:
   Description: Check that `command` doesn't equals to name of `execute`.
   Enabled: true
   StyleGuide: http://www.rubydoc.info/gems/rubocop-itamae/RuboCop/Cop/Itamae/CommandEqualsToName
+
+Itamae/NeedlessDefaultAction:
+  Description: Checks whether default action is written for resource.
+  Enabled: true
+  StyleGuide: http://www.rubydoc.info/gems/rubocop-itamae/RuboCop/Cop/Itamae/NeedlessDefaultAction
