@@ -12,3 +12,8 @@ Itamae/NeedlessDefaultAction:
   Description: Checks whether default action is written for resource.
   Enabled: true
   StyleGuide: http://www.rubydoc.info/gems/rubocop-itamae/RuboCop/Cop/Itamae/NeedlessDefaultAction
+
+Itamae/RecipePath:
+  Description: Checks whether the recipe is placed under `cookbooks` dir or `roles` dir.
+  Enabled: true
+  StyleGuide: http://www.rubydoc.info/gems/rubocop-itamae/RuboCop/Cop/Itamae/RecipePath

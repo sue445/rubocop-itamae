@@ -1,60 +1,42 @@
 # frozen_string_literal: true
 
-# TODO: when finished, run `rake generate_cops_documentation` to update the docs
 module RuboCop
   module Cop
     module Itamae
-      # TODO: Write cop description and example of bad / good code. For every
-      # `SupportedStyle` and unique configuration, there needs to be examples.
-      # Examples must have valid Ruby syntax. Do not use upticks.
+      # Checks whether the recipe is placed under `cookbooks` dir
+      # or `roles` dir.
       #
-      # @example EnforcedStyle: bar (default)
-      #   # Description of the `bar` style.
-      #
+      # @example
       #   # bad
-      #   bad_bar_method
-      #
-      #   # bad
-      #   bad_bar_method(args)
+      #   default.rb
+      #   hoge/web.rb
       #
       #   # good
-      #   good_bar_method
-      #
-      #   # good
-      #   good_bar_method(args)
-      #
-      # @example EnforcedStyle: foo
-      #   # Description of the `foo` style.
-      #
-      #   # bad
-      #   bad_foo_method
-      #
-      #   # bad
-      #   bad_foo_method(args)
-      #
-      #   # good
-      #   good_foo_method
-      #
-      #   # good
-      #   good_foo_method(args)
+      #   cookbooks/nginx/default.rb
+      #   roles/web.rb
       #
       class RecipePath < Cop
-        # TODO: Implement the cop in here.
-        #
-        # In many cases, you can use a node matcher for matching node pattern.
-        # See https://github.com/rubocop-hq/rubocop/blob/master/lib/rubocop/node_pattern.rb
-        #
-        # For example
-        MSG = 'Use `#good_method` instead of `#bad_method`.'.freeze
+        include RangeHelp
 
-        def_node_matcher :bad_method?, <<-PATTERN
-          (send nil? :bad_method ...)
-        PATTERN
+        MSG = 'Prefer recipe to placed under `cookbooks` dir' \
+              ' or `roles` dir.'.freeze
 
-        def on_send(node)
-          return unless bad_method?(node)
+        def investigate(processed_source)
+          file_path = processed_source.file_path
+          return if config.file_to_include?(file_path)
 
-          add_offense(node)
+          for_bad_filename(file_path) do |range, msg|
+            add_offense(nil, location: range, message: msg)
+          end
+        end
+
+        private
+
+        def for_bad_filename(file_path)
+          return unless File.extname(file_path) == '.rb'
+          return if file_path =~ %r{/(cookbooks|roles)/}
+
+          yield source_range(processed_source.buffer, 1, 0), MSG
         end
       end
     end

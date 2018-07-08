@@ -3,21 +3,56 @@
 RSpec.describe RuboCop::Cop::Itamae::RecipePath do
   subject(:cop) { described_class.new(config) }
 
-  let(:config) { RuboCop::Config.new }
-
-  # TODO: Write test code
-  #
-  # For example
-  it 'registers an offense when using `#bad_method`' do
-    expect_offense(<<-RUBY.strip_indent)
-      bad_method
-      ^^^^^^^^^^ Use `#good_method` instead of `#bad_method`.
-    RUBY
+  let(:config) do
+    RuboCop::Config.new(
+      {
+        'AllCops' => {
+          'Include' => []
+        },
+        described_class.badge.to_s => cop_config
+      },
+      '/some/.rubocop.yml'
+    )
   end
 
-  it 'does not register an offense when using `#good_method`' do
-    expect_no_offenses(<<-RUBY.strip_indent)
-      good_method
-    RUBY
+  let(:cop_config)       { {} }
+  let(:source)           { "package 'git'" }
+  let(:processed_source) { parse_source(source) }
+
+  before do
+    allow(processed_source.buffer)
+      .to receive(:name).and_return(filename)
+    _investigate(cop, processed_source)
+  end
+
+  context 'within cookbooks' do
+    let(:filename) { '/path/to/repo/cookbooks/git/default.rb' }
+
+    it 'registers no offense' do
+      expect_no_offenses(<<-RUBY)
+        package 'git'
+      RUBY
+    end
+  end
+
+  context 'within roles' do
+    let(:filename) { '/path/to/repo/roles/web.rb' }
+
+    it 'registers no offense' do
+      expect_no_offenses(<<-RUBY)
+        package 'git'
+      RUBY
+    end
+  end
+
+  context 'within other path' do
+    let(:filename) { '/path/to/repo/recipe.rb' }
+
+    it 'registers an offense' do
+      expect_offense(<<-RUBY.strip_indent)
+        package 'git'
+        ^ Prefer recipe to placed under `cookbooks` dir or `roles` dir.
+      RUBY
+    end
   end
 end
