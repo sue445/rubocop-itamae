@@ -27,9 +27,7 @@ Or install it yourself as:
 Add this line to your application's `.rubocop.yml`
 
 ```yml
-inherit_gem:
-  rubocop-itamae:
-    - config/default.yml
+require: rubocop-itamae
 ```
 
 ## Development
