@@ -6,6 +6,8 @@ module RuboCop
       # Checks whether the recipe is placed under `cookbooks` dir
       # or `roles` dir.
       #
+      # @see https://github.com/itamae-kitchen/itamae/wiki/Best-Practice#directory-structure
+      #
       # @example
       #   # bad
       #   default.rb
