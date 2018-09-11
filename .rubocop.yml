@@ -11,6 +11,11 @@ Metrics/LineLength:
   Exclude:
     - "spec/spec_helper.rb"
 
+Naming/FileName:
+  Exclude:
+    - "lib/rubocop-itamae.rb"
+    - "rubocop-itamae.gemspec"
+
 Style/HashSyntax:
   Exclude:
     - "Rakefile"
