@@ -23,21 +23,21 @@ module RuboCop
         MSG = 'Prefer to omit the default action.'.freeze
 
         RESOURCE_DEFAULT_ACTIONS = {
-          directory:        :create,
-          execute:          :run,
-          file:             :create,
-          gem_package:      :install,
-          git:              :sync,
-          group:            :create,
-          http_request:     :create,
-          link:             :create,
+          directory: :create,
+          execute: :run,
+          file: :create,
+          gem_package: :install,
+          git: :sync,
+          group: :create,
+          http_request: :create,
+          link: :create,
           local_ruby_block: :run,
-          package:          :install,
+          package: :install,
           remote_directory: :create,
-          remote_file:      :create,
-          service:          :nothing,
-          template:         :create,
-          user:             :create
+          remote_file: :create,
+          service: :nothing,
+          template: :create,
+          user: :create
         }.freeze
 
         def_node_search :find_resource, <<-PATTERN
