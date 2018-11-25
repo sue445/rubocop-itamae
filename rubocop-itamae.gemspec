@@ -25,7 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rubocop', '>= 0.53.0'
 
   spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0.0'
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rake', '>= 11.0'
