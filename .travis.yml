@@ -5,7 +5,7 @@ rvm:
   - 2.3
   - 2.4
   - 2.5
-  - 2.6.0
+  - 2.6
   - ruby-head
 bundler_args: "--jobs=4"
 cache: bundler
@@ -30,6 +30,11 @@ notifications:
 matrix:
   allow_failures:
     - rvm: ruby-head
+  include:
+    - rvm: 2.6
+      env: RUBYOPT="--jit"
+    - rvm: ruby-head
+      env: RUBYOPT="--jit"
 env:
   global:
     - CC_TEST_REPORTER_ID=7e9993b9f657bb33552e76a7b9c8292541cf9a5d8d6811f585f6cfbc0785c820
