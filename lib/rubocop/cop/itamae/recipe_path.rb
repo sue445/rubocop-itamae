@@ -21,7 +21,7 @@ module RuboCop
         include RangeHelp
 
         MSG = 'Prefer recipe to placed under `cookbooks` dir' \
-              ' or `roles` dir.'.freeze
+              ' or `roles` dir.'
 
         def investigate(processed_source)
           file_path = processed_source.file_path

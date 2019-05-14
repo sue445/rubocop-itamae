@@ -21,7 +21,7 @@ module RuboCop
         include RangeHelp
 
         MSG = 'Prefer to omit `command` if `command` equals to ' \
-              'name of `execute`'.freeze
+              'name of `execute`'
 
         def_node_search :find_execute, <<-PATTERN
           (block

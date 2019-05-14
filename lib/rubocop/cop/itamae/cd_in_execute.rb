@@ -14,7 +14,7 @@ module RuboCop
       #     cwd '/tmp'
       #   end
       class CdInExecute < Cop
-        MSG = "Insert `cwd '%<dir>s'` and remove this.".freeze
+        MSG = "Insert `cwd '%<dir>s'` and remove this."
 
         def_node_search :find_execute_with_block, <<-PATTERN
           (block
@@ -51,7 +51,7 @@ module RuboCop
         end
 
         def on_send(node)
-          return if node.parent && node.parent.block_type?
+          return if node.parent&.block_type?
 
           find_execute_without_block(node) do |name|
             add_offense_for_execute_name(node, name)
