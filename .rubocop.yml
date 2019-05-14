@@ -1,7 +1,5 @@
-AllCops:
-  # rubocop requires ruby 2.2+
-  # https://github.com/rubocop-hq/rubocop/pull/5990
-  TargetRubyVersion: 2.2
+# AllCops:
+#   TargetRubyVersion: 2.2
 
 Metrics/BlockLength:
   Exclude:
