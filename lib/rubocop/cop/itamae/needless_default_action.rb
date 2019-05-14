@@ -20,7 +20,7 @@ module RuboCop
       class NeedlessDefaultAction < Cop
         include RangeHelp
 
-        MSG = 'Prefer to omit the default action.'.freeze
+        MSG = 'Prefer to omit the default action.'
 
         RESOURCE_DEFAULT_ACTIONS = {
           directory: :create,

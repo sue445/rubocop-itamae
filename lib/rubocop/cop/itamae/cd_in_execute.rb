@@ -14,7 +14,7 @@ module RuboCop
       #     cwd '/tmp'
       #   end
       class CdInExecute < Cop
-        MSG = "Insert `cwd '%<dir>s'` and remove this.".freeze
+        MSG = "Insert `cwd '%<dir>s'` and remove this."
 
         def_node_search :find_execute_with_block, <<-PATTERN
           (block
