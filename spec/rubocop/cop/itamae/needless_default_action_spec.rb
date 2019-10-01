@@ -7,7 +7,7 @@ RSpec.describe RuboCop::Cop::Itamae::NeedlessDefaultAction do
 
   context 'with default action' do
     it 'registers an offense' do
-      expect_offense(<<-RUBY.strip_indent)
+      expect_offense(<<~RUBY)
         package 'git' do
           action :install
           ^^^^^^^^^^^^^^^ Prefer to omit the default action.
@@ -17,7 +17,7 @@ RSpec.describe RuboCop::Cop::Itamae::NeedlessDefaultAction do
 
     include_examples 'autocorrect' do
       let(:original) do
-        <<-RUBY.strip_indent
+        <<~RUBY
           package 'git' do
             action :install
           end
@@ -25,7 +25,7 @@ RSpec.describe RuboCop::Cop::Itamae::NeedlessDefaultAction do
       end
 
       let(:corrected) do
-        <<-RUBY.strip_indent
+        <<~RUBY
           package 'git' do
           end
         RUBY
