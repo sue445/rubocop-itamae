@@ -49,7 +49,7 @@ RSpec.describe RuboCop::Cop::Itamae::RecipePath do
     let(:filename) { '/path/to/repo/recipe.rb' }
 
     it 'registers an offense' do
-      expect_offense(<<-RUBY.strip_indent)
+      expect_offense(<<~RUBY)
         package 'git'
         ^ Prefer recipe to placed under `cookbooks` dir or `roles` dir.
       RUBY
