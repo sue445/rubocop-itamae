@@ -20,7 +20,7 @@ task :new_cop, [:cop] do |_task, args|
 
   begin
     generator.inject_config(config_file_path: 'config/default.yml')
-  rescue TypeError # rubocop:disable Lint/HandleExceptions
+  rescue TypeError # rubocop:disable Lint/SuppressedException
     # nop
   end
 
