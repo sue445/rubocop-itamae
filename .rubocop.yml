@@ -2,13 +2,13 @@ AllCops:
   # rubocop 0.69.0+ requires ruby 2.3+
   TargetRubyVersion: 2.3
 
-Metrics/BlockLength:
-  Exclude:
-    - "spec/**/*.rb"
-
 Layout/LineLength:
   Exclude:
     - "spec/spec_helper.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*.rb"
 
 Naming/FileName:
   Exclude:
