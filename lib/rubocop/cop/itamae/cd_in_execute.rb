@@ -58,7 +58,7 @@ module RuboCop
           end
         end
 
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         # def autocorrect(node)
         #   if node.block_type?
         #     lambda do |corrector|
@@ -103,7 +103,7 @@ module RuboCop
         #     end
         #   end
         # end
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
 
         private
 

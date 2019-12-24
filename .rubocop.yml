@@ -6,7 +6,7 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*.rb"
 
-Metrics/LineLength:
+Layout/LineLength:
   Exclude:
     - "spec/spec_helper.rb"
 
