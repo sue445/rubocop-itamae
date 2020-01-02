@@ -3,7 +3,7 @@
 Code style checking for [itamae](https://github.com/itamae-kitchen/itamae) recipes
 
 [![Gem Version](https://badge.fury.io/rb/rubocop-itamae.svg)](https://badge.fury.io/rb/rubocop-itamae)
-[![Build Status](https://travis-ci.org/sue445/rubocop-itamae.svg?branch=master)](https://travis-ci.org/sue445/rubocop-itamae)
+[![Build Status](https://github.com/sue445/rubocop-itamae/workflows/test/badge.svg?branch=master)](https://github.com/sue445/rubocop-itamae/actions?query=workflow%3Atest)
 [![Coverage Status](https://coveralls.io/repos/github/sue445/rubocop-itamae/badge.svg?branch=master)](https://coveralls.io/github/sue445/rubocop-itamae?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bf2f4b2cbf9c2cfc0e92/maintainability)](https://codeclimate.com/github/sue445/rubocop-itamae/maintainability)
 
