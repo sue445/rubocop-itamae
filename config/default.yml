@@ -13,6 +13,15 @@ Itamae/NeedlessDefaultAction:
   Enabled: true
   StyleGuide: http://www.rubydoc.info/gems/rubocop-itamae/RuboCop/Cop/Itamae/NeedlessDefaultAction
 
+Itamae/NodeKeyType:
+  Description: Check for node key type.
+  Enabled: true
+  StyleGuide: http://www.rubydoc.info/gems/rubocop-itamae/RuboCop/Cop/Itamae/NodeKeyType
+  EnforcedStyle: symbol
+  SupportedStyles:
+    - symbol
+    - string
+
 Itamae/RecipePath:
   Description: Checks whether the recipe is placed under `cookbooks` dir or `roles` dir.
   Enabled: true
