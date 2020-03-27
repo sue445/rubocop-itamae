@@ -15,7 +15,6 @@ end
 require 'rubocop'
 
 require 'rubocop/rspec/support'
-require 'pry'
 
 spec_helper_glob = File.expand_path('support/**/*.rb', __dir__)
 Dir[spec_helper_glob].sort.each { |f| require f }
