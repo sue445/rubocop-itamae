@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'rake', '>= 11.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop', '>= 0.78.0'
+  spec.add_development_dependency 'rubocop', '>= 0.81.0'
   spec.add_development_dependency 'rubocop_auto_corrector'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'yard'
