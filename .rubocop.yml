@@ -1,6 +1,6 @@
 AllCops:
-  # rubocop 0.69.0+ requires ruby 2.3+
-  TargetRubyVersion: 2.3
+  # rubocop 0.82.0+ requires ruby 2.4+
+  TargetRubyVersion: 2.4
 
 Layout/LineLength:
   Exclude:
