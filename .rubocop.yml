@@ -1,4 +1,6 @@
 AllCops:
+  NewCops: enable
+
   # rubocop 0.82.0+ requires ruby 2.4+
   TargetRubyVersion: 2.4
 
