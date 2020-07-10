@@ -29,9 +29,7 @@ RSpec.describe RuboCop::Cop::Itamae::RecipePath do
     let(:filename) { '/path/to/repo/cookbooks/git/default.rb' }
 
     it 'registers no offense' do
-      expect_no_offenses(<<-RUBY)
-        package 'git'
-      RUBY
+      expect(cop.offenses).to be_empty
     end
   end
 
@@ -39,9 +37,7 @@ RSpec.describe RuboCop::Cop::Itamae::RecipePath do
     let(:filename) { '/path/to/repo/roles/web.rb' }
 
     it 'registers no offense' do
-      expect_no_offenses(<<-RUBY)
-        package 'git'
-      RUBY
+      expect(cop.offenses).to be_empty
     end
   end
 
@@ -49,10 +45,8 @@ RSpec.describe RuboCop::Cop::Itamae::RecipePath do
     let(:filename) { '/path/to/repo/recipe.rb' }
 
     it 'registers an offense' do
-      expect_offense(<<~RUBY)
-        package 'git'
-        ^ Prefer recipe to placed under `cookbooks` dir or `roles` dir.
-      RUBY
+      expect(cop.offenses.size).to eq(1)
+      expect(cop.messages).to eq(['Prefer recipe to placed under `cookbooks` dir or `roles` dir.'])
     end
   end
 end
