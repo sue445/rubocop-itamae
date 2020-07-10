@@ -13,7 +13,7 @@ module RuboCop
       #   execute 'rm -rf /tmp/*' do
       #     cwd '/tmp'
       #   end
-      class CdInExecute < Cop
+      class CdInExecute < Base
         MSG = "Insert `cwd '%<dir>s'` and remove this."
 
         def_node_search :find_execute_with_block, <<-PATTERN
@@ -110,7 +110,7 @@ module RuboCop
           return unless dir
 
           loc = cd_location(node.child_nodes.first, name)
-          add_offense(node, message: format(MSG, dir: dir), location: loc)
+          add_offense(loc, message: format(MSG, dir: dir))
         end
 
         def add_offence_for_execute_block_name(node, name)
@@ -118,7 +118,7 @@ module RuboCop
           return unless dir
 
           loc = cd_location(node.child_nodes.first.child_nodes.first, name)
-          add_offense(node, message: format(MSG, dir: dir), location: loc)
+          add_offense(loc, message: format(MSG, dir: dir))
         end
 
         def add_offense_for_command_param(param_node, command)
@@ -133,7 +133,7 @@ module RuboCop
             end
 
           loc = cd_location(command_node, command)
-          add_offense(param_node, message: format(MSG, dir: dir), location: loc)
+          add_offense(loc, message: format(MSG, dir: dir))
         end
 
         def cd_dir_in_command(command)

@@ -17,8 +17,9 @@ module RuboCop
       #
       #   package 'git'
       #
-      class NeedlessDefaultAction < Cop
+      class NeedlessDefaultAction < Base
         include RangeHelp
+        extend AutoCorrector
 
         MSG = 'Prefer to omit the default action.'
 
@@ -62,15 +63,11 @@ module RuboCop
               find_action(param_node) do |action|
                 next unless action == RESOURCE_DEFAULT_ACTIONS[resource]
 
-                add_offense(param_node, location: :expression)
+                add_offense(param_node.loc.expression) do |corrector|
+                  remove_action_param(corrector, param_node.parent, param_node) if param_node.send_type?
+                end
               end
             end
-          end
-        end
-
-        def autocorrect(node)
-          lambda do |corrector|
-            remove_action_param(corrector, node.parent, node) if node.send_type?
           end
         end
 

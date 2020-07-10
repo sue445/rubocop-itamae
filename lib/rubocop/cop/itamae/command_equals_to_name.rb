@@ -17,8 +17,9 @@ module RuboCop
       #   execute 'Remove temporary files' do
       #     command 'rm -rf /tmp/*'
       #   end
-      class CommandEqualsToName < Cop
+      class CommandEqualsToName < Base
         include RangeHelp
+        extend AutoCorrector
 
         MSG = 'Prefer to omit `command` if `command` equals to ' \
               'name of `execute`'
@@ -45,26 +46,26 @@ module RuboCop
               find_command(param_node) do |command|
                 next unless name == command
 
-                add_offense(param_node, location: :expression)
+                add_param_node_offense(param_node)
               end
-            end
-          end
-        end
-
-        def autocorrect(node)
-          lambda do |corrector|
-            if node.begin_type?
-              node.each_child_node do |param_node|
-                remove_command_param(corrector, node.parent, param_node)
-              end
-
-            elsif node.send_type?
-              remove_command_param(corrector, node.parent, node)
             end
           end
         end
 
         private
+
+        def add_param_node_offense(param_node)
+          add_offense(param_node.loc.expression) do |corrector|
+            if param_node.begin_type?
+              param_node.each_child_node do |child_param_node|
+                remove_command_param(corrector, param_node.parent, child_param_node)
+              end
+
+            elsif param_node.send_type?
+              remove_command_param(corrector, param_node.parent, param_node)
+            end
+          end
+        end
 
         def remove_command_param(corrector, parent_node, param_node)
           find_execute(parent_node) do |name|
