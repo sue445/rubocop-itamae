@@ -22,14 +22,14 @@ RSpec.describe RuboCop::Cop::Itamae::RecipePath do
   before do
     allow(processed_source.buffer)
       .to receive(:name).and_return(filename)
-    _investigate(cop, processed_source)
+    @offenses = _investigate(cop, processed_source)
   end
 
   context 'within cookbooks' do
     let(:filename) { '/path/to/repo/cookbooks/git/default.rb' }
 
     it 'registers no offense' do
-      expect(cop.offenses).to be_empty
+      expect(@offenses).to be_empty
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe RuboCop::Cop::Itamae::RecipePath do
     let(:filename) { '/path/to/repo/roles/web.rb' }
 
     it 'registers no offense' do
-      expect(cop.offenses).to be_empty
+      expect(@offenses).to be_empty
     end
   end
 
@@ -45,8 +45,8 @@ RSpec.describe RuboCop::Cop::Itamae::RecipePath do
     let(:filename) { '/path/to/repo/recipe.rb' }
 
     it 'registers an offense' do
-      expect(cop.offenses.size).to eq(1)
-      expect(cop.messages).to eq(['Prefer recipe to placed under `cookbooks` dir or `roles` dir.'])
+      expect(@offenses.size).to eq(1)
+      expect(@offenses.map(&:message)).to eq(['Prefer recipe to placed under `cookbooks` dir or `roles` dir.'])
     end
   end
 end
