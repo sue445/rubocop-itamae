@@ -17,28 +17,25 @@ module RuboCop
       #   cookbooks/nginx/default.rb
       #   roles/web.rb
       #
-      class RecipePath < Cop
+      class RecipePath < Base
         include RangeHelp
 
         MSG = 'Prefer recipe to placed under `cookbooks` dir' \
               ' or `roles` dir.'
 
-        def investigate(processed_source)
+        def on_new_investigation
           file_path = processed_source.file_path
           return if config.file_to_include?(file_path)
 
-          for_bad_filename(file_path) do |range, msg|
-            add_offense(nil, location: range, message: msg)
-          end
+          add_global_offense if bad_filename?(file_path)
         end
 
         private
 
-        def for_bad_filename(file_path)
+        def bad_filename?(file_path)
           return unless File.extname(file_path) == '.rb'
-          return if file_path =~ %r{/(cookbooks|roles)/}
 
-          yield source_range(processed_source.buffer, 1, 0), MSG
+          !file_path.match?(%r{/(cookbooks|roles)/})
         end
       end
     end
