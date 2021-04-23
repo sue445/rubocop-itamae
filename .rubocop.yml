@@ -1,5 +1,6 @@
 AllCops:
   NewCops: enable
+  SuggestExtensions: false
 
   # rubocop 1.13.0+ requires ruby 2.5+
   TargetRubyVersion: 2.5
