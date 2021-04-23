@@ -1,5 +1,11 @@
 ## master
-[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.3...master)
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.4...master)
+
+## v0.1.4
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.3...v0.1.4)
+
+* Requires rubocop 1.13.0+ and drop ruby 2.4
+  * https://github.com/sue445/rubocop-itamae/pull/51
 
 ## v0.1.3
 [full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.2...v0.1.3)
