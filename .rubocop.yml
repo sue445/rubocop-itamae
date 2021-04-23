@@ -1,8 +1,8 @@
 AllCops:
   NewCops: enable
 
-  # rubocop 0.82.0+ requires ruby 2.4+
-  TargetRubyVersion: 2.4
+  # rubocop 1.13.0+ requires ruby 2.5+
+  TargetRubyVersion: 2.5
 
 Layout/LineLength:
   Exclude:
