@@ -22,15 +22,14 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.4.0'
+  spec.required_ruby_version = '>= 2.5.0'
 
-  spec.add_dependency 'rubocop', '>= 0.87.0'
+  spec.add_dependency 'rubocop', '>= 1.13.0'
 
   spec.add_development_dependency 'bundler', '>= 1.16'
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'rake', '>= 11.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop', '>= 0.84.0'
   spec.add_development_dependency 'rubocop_auto_corrector'
   spec.add_development_dependency 'simplecov', '< 0.18.0'
   spec.add_development_dependency 'yard'
