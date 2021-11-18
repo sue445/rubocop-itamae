@@ -12,6 +12,7 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*.rb"
+    - "rubocop-itamae.gemspec"
 
 Naming/FileName:
   Exclude:
