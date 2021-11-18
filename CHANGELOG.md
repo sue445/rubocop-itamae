@@ -1,5 +1,11 @@
 ## master
-[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.4...master)
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.5...master)
+
+## v0.1.5
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.4...v0.1.5)
+
+* Enable MFA requirement for gem releasing
+  * https://github.com/sue445/rubocop-itamae/pull/52
 
 ## v0.1.4
 [full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.3...v0.1.4)
