@@ -20,8 +20,7 @@ module RuboCop
       class RecipePath < Base
         include RangeHelp
 
-        MSG = 'Prefer recipe to placed under `cookbooks` dir' \
-              ' or `roles` dir.'
+        MSG = 'Prefer recipe to placed under `cookbooks` dir or `roles` dir.'
 
         def on_new_investigation
           file_path = processed_source.file_path
