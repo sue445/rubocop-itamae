@@ -1,19 +1,19 @@
 Itamae/CdInExecute:
   Description: Check that `cd` in `execute`.
   Enabled: true
-  StyleGuide: https://sue445.github.io/rubocop-itamae/RuboCop/Cop/Itamae/CdInExecute
+  StyleGuide: https://sue445.github.io/rubocop-itamae/RuboCop/Cop/Itamae/CdInExecute.html
 
 Itamae/CommandEqualsToName:
   Description: Check that `command` doesn't equals to name of `execute`.
   Enabled: true
-  StyleGuide: https://sue445.github.io/rubocop-itamae/RuboCop/Cop/Itamae/CommandEqualsToName
+  StyleGuide: https://sue445.github.io/rubocop-itamae/RuboCop/Cop/Itamae/CommandEqualsToName.html
 
 Itamae/NeedlessDefaultAction:
   Description: Checks whether default action is written for resource.
   Enabled: true
-  StyleGuide: https://sue445.github.io/rubocop-itamae/RuboCop/Cop/Itamae/NeedlessDefaultAction
+  StyleGuide: https://sue445.github.io/rubocop-itamae/RuboCop/Cop/Itamae/NeedlessDefaultAction.html
 
 Itamae/RecipePath:
   Description: Checks whether the recipe is placed under `cookbooks` dir or `roles` dir.
   Enabled: true
-  StyleGuide: https://sue445.github.io/rubocop-itamae/RuboCop/Cop/Itamae/RecipePath
+  StyleGuide: https://sue445.github.io/rubocop-itamae/RuboCop/Cop/Itamae/RecipePath.html
