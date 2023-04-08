@@ -9,7 +9,7 @@ RSpec.describe RuboCop::Cop::Itamae::CdInExecute, :config do
         it 'registers an offense' do
           expect_offense(<<-RUBY)
             execute 'cd /tmp && rm -rf /tmp/*'
-                     ^^^^^^^^^^^ Insert `cwd '/tmp'` and remove this.
+                     ^^^^^^^^^^^ Itamae/CdInExecute: Insert `cwd '/tmp'` and remove this.
           RUBY
         end
 
@@ -34,7 +34,7 @@ RSpec.describe RuboCop::Cop::Itamae::CdInExecute, :config do
         it 'registers an offense' do
           expect_offense(<<-RUBY)
             execute 'cd /tmp && rm -rf /tmp/*' do
-                     ^^^^^^^^^^^ Insert `cwd '/tmp'` and remove this.
+                     ^^^^^^^^^^^ Itamae/CdInExecute: Insert `cwd '/tmp'` and remove this.
               only_if 'ls -l /tmp/*'
             end
           RUBY
@@ -67,7 +67,7 @@ RSpec.describe RuboCop::Cop::Itamae::CdInExecute, :config do
           expect_offense(<<-RUBY)
             execute 'Remove temporary files' do
               command 'cd /tmp && rm -rf /tmp/*'
-                       ^^^^^^^^^^^ Insert `cwd '/tmp'` and remove this.
+                       ^^^^^^^^^^^ Itamae/CdInExecute: Insert `cwd '/tmp'` and remove this.
             end
           RUBY
         end
@@ -97,7 +97,7 @@ RSpec.describe RuboCop::Cop::Itamae::CdInExecute, :config do
           expect_offense(<<-RUBY)
             execute 'Remove temporary files' do
               command 'cd /tmp && rm -rf /tmp/*'
-                       ^^^^^^^^^^^ Insert `cwd '/tmp'` and remove this.
+                       ^^^^^^^^^^^ Itamae/CdInExecute: Insert `cwd '/tmp'` and remove this.
               only_if 'ls -l /tmp/*'
             end
           RUBY
