@@ -9,7 +9,7 @@ RSpec.describe RuboCop::Cop::Itamae::CommandEqualsToName, :config do
         expect_offense(<<-RUBY)
           execute 'rm -rf /tmp/*' do
             command 'rm -rf /tmp/*'
-            ^^^^^^^^^^^^^^^^^^^^^^^ Prefer to omit `command` if `command` equals to name of `execute`
+            ^^^^^^^^^^^^^^^^^^^^^^^ Itamae/CommandEqualsToName: Prefer to omit `command` if `command` equals to name of `execute`
           end
         RUBY
       end

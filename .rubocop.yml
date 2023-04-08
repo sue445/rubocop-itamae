@@ -2,8 +2,8 @@ AllCops:
   NewCops: enable
   SuggestExtensions: false
 
-  # rubocop 1.13.0+ requires ruby 2.5+
-  TargetRubyVersion: 2.5
+  # rubocop 1.29.0+ requires ruby 2.6+
+  TargetRubyVersion: 2.6
 
 Layout/LineLength:
   Exclude:

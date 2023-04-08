@@ -10,7 +10,7 @@ RSpec.describe RuboCop::Cop::Itamae::NeedlessDefaultAction do
       expect_offense(<<~RUBY)
         package 'git' do
           action :install
-          ^^^^^^^^^^^^^^^ Prefer to omit the default action.
+          ^^^^^^^^^^^^^^^ Itamae/NeedlessDefaultAction: Prefer to omit the default action.
         end
       RUBY
     end
