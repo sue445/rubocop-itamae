@@ -5,6 +5,9 @@ AllCops:
   # rubocop 1.29.0+ requires ruby 2.6+
   TargetRubyVersion: 2.6
 
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
+
 Layout/LineLength:
   Exclude:
     - "spec/spec_helper.rb"
