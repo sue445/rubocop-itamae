@@ -32,7 +32,7 @@ module RuboCop
         private
 
         def bad_filename?(file_path)
-          return unless File.extname(file_path) == '.rb'
+          return false unless File.extname(file_path) == '.rb'
 
           !file_path.match?(%r{/(cookbooks|roles)/})
         end
