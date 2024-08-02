@@ -38,5 +38,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop_auto_corrector'
   spec.add_development_dependency 'simplecov', '< 0.18.0'
+  spec.add_development_dependency 'term-ansicolor', '!= 1.11.1' # ref. https://github.com/flori/term-ansicolor/issues/41
   spec.add_development_dependency 'yard'
 end
