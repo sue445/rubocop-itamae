@@ -1,5 +1,12 @@
 ## master
-[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.5...master)
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.2.0...master)
+
+## [v0.2.0](https://github.com/sue445/rubocop-itamae/releases/tag/v0.2.0)
+
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.5...v0.2.0)
+
+* Pluginfy RuboCop Itamae
+  * https://github.com/sue445/rubocop-itamae/pull/82
 
 ## v0.1.5
 [full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.1.4...v0.1.5)
