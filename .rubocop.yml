@@ -2,8 +2,8 @@ AllCops:
   NewCops: enable
   SuggestExtensions: false
 
-  # rubocop 1.29.0+ requires ruby 2.6+
-  TargetRubyVersion: 2.6
+  # rubocop 1.72.0+ requires ruby 2.7+
+  TargetRubyVersion: 2.7
 
 Gemspec/DevelopmentDependencies:
   EnforcedStyle: gemspec

@@ -27,7 +27,8 @@ Or install it yourself as:
 Add this line to your application's `.rubocop.yml`
 
 ```yml
-require: rubocop-itamae
+plugins:
+  - rubocop-itamae
 ```
 
 ## Development

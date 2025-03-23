@@ -4,5 +4,6 @@ require 'rubocop'
 
 require_relative 'rubocop/itamae'
 require_relative 'rubocop/itamae/version'
+require_relative 'rubocop/itamae/plugin'
 
 require_relative 'rubocop/cop/itamae_cops'
