@@ -1,5 +1,10 @@
 ## master
-[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.2.0...master)
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.2.1...master)
+
+## [v0.2.1](https://github.com/sue445/rubocop-itamae/releases/tag/v0.2.1)
+
+* Release gem from GitHub Actions
+  * https://github.com/sue445/rubocop-itamae/pull/86
 
 ## [v0.2.0](https://github.com/sue445/rubocop-itamae/releases/tag/v0.2.0)
 
