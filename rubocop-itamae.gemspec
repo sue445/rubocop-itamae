@@ -36,7 +36,10 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '>= 1.16'
   spec.add_development_dependency 'coveralls_reborn'
+  spec.add_development_dependency 'logger'
+  spec.add_development_dependency 'ostruct'
   spec.add_development_dependency 'rake', '>= 11.0'
+  spec.add_development_dependency 'rdoc'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop_auto_corrector'
   spec.add_development_dependency 'simplecov', '< 0.18.0'
