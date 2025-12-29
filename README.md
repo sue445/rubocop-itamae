@@ -4,7 +4,7 @@ Code style checking for [itamae](https://github.com/itamae-kitchen/itamae) recip
 
 [![Gem Version](https://badge.fury.io/rb/rubocop-itamae.svg)](https://badge.fury.io/rb/rubocop-itamae)
 [![test](https://github.com/sue445/rubocop-itamae/actions/workflows/test.yml/badge.svg)](https://github.com/sue445/rubocop-itamae/actions/workflows/test.yml)
-[![Coverage Status](https://coveralls.io/repos/github/sue445/rubocop-itamae/badge.svg?branch=master)](https://coveralls.io/github/sue445/rubocop-itamae?branch=master)
+[![Maintainability](https://qlty.sh/gh/sue445/projects/rubocop-itamae/maintainability.svg)](https://qlty.sh/gh/sue445/projects/rubocop-itamae)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bf2f4b2cbf9c2cfc0e92/maintainability)](https://codeclimate.com/github/sue445/rubocop-itamae/maintainability)
 
 ## Installation
