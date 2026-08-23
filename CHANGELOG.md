@@ -1,7 +1,16 @@
 ## master
-[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.2.1...master)
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.2.2...master)
+
+## [v0.2.2](https://github.com/sue445/rubocop-itamae/releases/tag/v0.2.2)
+
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.2.1...v0.2.2)
+
+* Migrate release_gem workflow to sue445/workflows (Also testing the gem release)
+  * https://github.com/sue445/rubocop-itamae/pull/124
 
 ## [v0.2.1](https://github.com/sue445/rubocop-itamae/releases/tag/v0.2.1)
+
+[full changelog](http://github.com/sue445/rubocop-itamae/compare/v0.2.0...v0.2.1)
 
 * Release gem from GitHub Actions
   * https://github.com/sue445/rubocop-itamae/pull/86
